@@ -18,13 +18,16 @@ clearInput=(input)=>{
     }
 }
 calculate=()=>{
-    try{
-        display.value = eval(display.value);
+    if(display.value){
+        try{
+            display.value = eval(display.value);
+        }
+        catch(error){
+            display.value = "Error";
+            clearInput();
+        }
     }
-    catch(error){
-        display.value = "Error";
-        clearInput();
-    }
+    
 }
 function copy(){
     navigator.clipboard.writeText(display.value);
