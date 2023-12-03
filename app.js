@@ -4,13 +4,18 @@ function appendToInput(input){
     display.value+=input;
     console.log(display.value)
 }
-clearInput=()=>{
-    if(count<9)
-        count++;
-    else
-        count='<3';
-    display.value="";
-    display.placeholder=`Hi again! ${count}`
+clearInput=(input)=>{
+   
+    if(input)
+        display.placeholder=`${input}`;
+    else{
+         if(count<9)        
+            count++;
+        else
+            count='<3';
+        display.value="";
+        display.placeholder=`Hi again! ${count}`
+    }
 }
 calculate=()=>{
     try{
@@ -18,5 +23,6 @@ calculate=()=>{
     }
     catch(error){
         display.value = "Error";
+        clearInput();
     }
 }
