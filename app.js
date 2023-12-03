@@ -26,3 +26,7 @@ calculate=()=>{
         clearInput();
     }
 }
+function copy(){
+    navigator.clipboard.writeText(display.value);
+    console.log("copy");
+}
